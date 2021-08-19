@@ -3,9 +3,9 @@
 function renderLicenseBadge(license) {
   if (license === `None`) {
     return ``;
-  } else if (license === `Apache 2.0`) {
-    return `![license: ${license}(https://img.shields.io/badge/License-${license}-yellow.svg)]`;
-  } else if (license === "APACHE 2.0") {
+  } else if (license === `MIT`) {
+    return `![license: ${license}(https://img.shields.io/badge/License-MIT-yellow.svg)]`;
+  } else if (license === "Apache 2.0") {
     return `![License: ${license}](https://img.shields.io/badge/License-Apache%202.0-blue.svg)`;
   } else if (license === "GPL 3.0") {
     return `![License: ${license}](https://img.shields.io/badge/License-GPLv3-blue.svg)`;
@@ -87,42 +87,37 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `# ${data.name}
   ${renderLicenseBadge(data.license)}
   
-  https://github.com/${data.github}/${data.title}
+  https://github.com/${data.github}/${data.name}
   ## Description 
-  ${data.description}
+  ${data.desc}
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
-  * [Tests](#Tests)
   * [Contributions](#Contributions)
   * [Credits](#Credits)
   * [Contact](#Contact)
   
   ## Installation 
-  These dependencies must be installed for this application to work properly: ${
-    data.dependencies
-  }
+  Include the following module to make this work: ${data.modules}
   ## Usage
   ${data.usage}
   ## License
   ${renderLicenseBadge(data.license)}
   License Link: ${renderLicenseLink(data.license)}
   ${renderLicenseSection(data.license)}
-  ## Tests
-  To run tests use: ${data.tests}
   ## Contributions
   ${data.contributing}
   ## Credits
   ${data.credit}
   ## Contact
-  If you have any questions, feel free to cantact me at: 
+  You can find me here:
   * GitHub: https://github.com/${data.github}
-  * Linkedin: ${data.linkedin}
-  * E-mail: ${data.email}
+  * Linkedin: https://www.linkedin.com/${data.linkedin}
+  * E-mail:${data.email}
 `;
 }
 

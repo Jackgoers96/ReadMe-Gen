@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
-const inquirer = require("./utils/node_modules/inquirer/package.json");
+const inquirer = require("inquirer");
 const fs = require("fs");
-const util = require(`util`);
+
 //pulls markdown generator in
 const generateMarkdown = require("./utils/generateMarkdown.js");
 // TODO: Create an array of questions for user input
@@ -18,12 +18,12 @@ const questionArray = [
   },
   {
     type: `input`,
-    name: `linkdin`,
-    message: `What is your LinkdIn username?`,
+    name: `linkedin`,
+    message: `What is your LinkedIn username?`,
   },
   {
     type: `input`,
-    name: `Name`,
+    name: `name`,
     message: `What is your project title?`,
   },
   {
@@ -32,20 +32,31 @@ const questionArray = [
     message: `include a brief description of your repo/project`,
   },
   {
-    type: `list`,
+    type: `input`,
     name: `usage`,
     message: `Explain how your repo is to be used to a user`,
+  },
+  {
+    type: `list`,
+    name: `license`,
+    message: `Which licensure does this fall under? (Choose one) `,
     choices: [`MIT`, `Apache 2.0`, `GPL 3.0`, `BSD 3`, `None`],
   },
   {
-    type: `input`,
-    name: `license`,
-    message: `Which licensure does this fall under? (Choose one) `,
+    type: "input",
+    name: "modules",
+    message: "Be sure to run when installing modules: ",
+    default: "npm i",
   },
   {
-    type: `input`,
-    name: `userName`,
-    message: `What is your GitHiub username?`,
+    type: "input",
+    name: "credit",
+    message: "Give credit here:",
+  },
+  {
+    type: "input",
+    name: "contributing",
+    message: "Name your contributors:",
   },
 ];
 
